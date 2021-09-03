@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM gradle:6.5.1-jdk8
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -13,7 +13,7 @@ ENV PATH "${PATH}:${ANDROID_HOME}/platform-tools"
 
 RUN dpkg --add-architecture i386 && \
 	apt-get update -yqq && \
-	apt-get install -y wget unzip openjdk-8-jdk
+	apt-get install -y wget unzip
 RUN wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
 RUN unzip -o -qq android-sdk.zip -d /opt/android-sdk
 
